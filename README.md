@@ -1,17 +1,22 @@
 
-# react-native-audio-exoplayer
+# react-native-audio-exoplayer-files-files
+
+This repo is a fork from [react-native-audio-exoplayer-files](https://github.com/kyrylenko/react-native-audio-exoplayer-files). In addition to the original package, it allows to play audio files from any location in the local storage, passing a `"file://"` URI. The reast of this README is as in the original repo.
+
+----------
+
 React Native module for playing sound clips on Android. Creation of this module was inspired by [Expo Audio](https://docs.expo.io/versions/v30.0.0/sdk/audio) - the same API is being used here.
-You should be using react-native-audio-exoplayer:
+You should be using react-native-audio-exoplayer-files:
 - for projects with native code
 - when you need to play audio in the background (Expo does not yet support backgrounding)
 
 ## Getting started
 
-`$ npm install react-native-audio-exoplayer --save`
+`$ npm install react-native-audio-exoplayer-files --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-audio-exoplayer`
+`$ react-native link react-native-audio-exoplayer-files`
 
 ### Manual installation
 
@@ -37,17 +42,17 @@ You should be using react-native-audio-exoplayer:
 
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-audio-exoplayer'
-  	project(':react-native-audio-exoplayer').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-audio-exoplayer/android')
+  	include ':react-native-audio-exoplayer-files'
+  	project(':react-native-audio-exoplayer-files').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-audio-exoplayer-files/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-audio-exoplayer')
+      compile project(':react-native-audio-exoplayer-files')
   	```
 
 ## Usage (Playing sounds)
 ```javascript
-import Sound from 'react-native-audio-exoplayer';
+import Sound from 'react-native-audio-exoplayer-files';
 ```
 This class represents a sound corresponding to an Asset or URL.
 
@@ -70,7 +75,7 @@ Creates and loads a sound from source, with optional `initialStatus`, and `onPla
 
 ### Parameters
 1. `source (object / asset)` -- The source of the sound. The following forms are supported:
-	- A dictionary of the form `{ uri: 'http://path/to/file' }` with a network URL pointing to an audio file on the web.
+	- A dictionary of the form `{ uri: 'http://path/to/file' }` with a network URL pointing to an audio file on the web or a local URI (`"file://"`) to a local file (e.g. generated in cache)
 	- `require('path/to/file')` for an audio file asset in the source code directory.
 
 2. `initialStatus (PlaybackStatusToSet)` -- The initial intended `PlaybackStatusToSet` of the sound, whose values will override the default initial playback status. This value defaults to `{}` if no parameter is passed. See below for details on `PlaybackStatusToSet` and the default initial playback status.
