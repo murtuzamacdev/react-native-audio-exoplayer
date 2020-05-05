@@ -22,7 +22,10 @@ public class SharedCookiesDataSourceFactory implements DataSource.Factory {
   public SharedCookiesDataSourceFactory(Uri uri, ReactContext reactApplicationContext, String userAgent) {
     if (uri.getScheme() != null && (uri.getScheme().equals("http") || uri.getScheme().equals("https"))) {
       mDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent);
-    } else {
+    } else if (uri.getScheme() != null && (uri.getScheme().equals("file"))) {
+      mDataSourceFactory = new DefaultDataSourceFactory(reactApplicationContext, userAgent);
+    }
+    else {
       mDataSourceFactory = DataSourceUtil.getRawDataSourceFactory(reactApplicationContext);
       //mDataSourceFactory = new DefaultDataSourceFactory(context, userAgent);
     }
