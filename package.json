@@ -1,8 +1,8 @@
 
 {
-  "name": "react-native-audio-exoplayer",
+  "name": "react-native-audio-exoplayer-files",
   "version": "1.0.2",
-  "description": "React Native module for playing sound clips on Android using Google ExoPlayer",
+  "description": "Fork of react-native-audio-exoplayer that also allows to play files from any location (e.g. cache)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,8 +15,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyrylenko/react-native-audio-exoplayer.git"
+    "url": "git+https://github.com/asarasua/react-native-audio-exoplayer.git"
   },
-  "author": "Pavlo Kyrylenko <kirilenko.pavlo@gmail.com> (https://github.com/kyrylenko)",
+  "author": "Álvaro Sarasúa <alvarosarasua@gmail.com> (https://github.com/asarasua)",
   "license": "MIT"
 }
