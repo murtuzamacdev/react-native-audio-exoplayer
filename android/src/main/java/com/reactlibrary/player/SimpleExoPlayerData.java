@@ -83,7 +83,7 @@ class SimpleExoPlayerData extends PlayerData
 
     // Create a default TrackSelector
     final Handler mainHandler = new Handler();
-    final TrackSelection.Factory trackSelectionFactory = new AdaptiveTrackSelection.Factory(BANDWIDTH_METER);
+    final TrackSelection.Factory trackSelectionFactory = new AdaptiveTrackSelection.Factory();
     final TrackSelector trackSelector = new DefaultTrackSelector(trackSelectionFactory);
 
     // Create the player
@@ -152,7 +152,7 @@ class SimpleExoPlayerData extends PlayerData
     if (newIsLooping != null) {
       mIsLooping = newIsLooping;
       if (mIsLooping) {
-        mSimpleExoPlayer.setRepeatMode(Player.REPEAT_MODE_ALL);
+        mSimpleExoPlayer.setRepeatMode(Player.REPEAT_MODE_ONE);
       } else {
         mSimpleExoPlayer.setRepeatMode(Player.REPEAT_MODE_OFF);
       }
@@ -327,8 +327,6 @@ class SimpleExoPlayerData extends PlayerData
       case C.TYPE_DASH:
         return new DashMediaSource(uri, factory,
             new DefaultDashChunkSource.Factory(factory), mainHandler, this);
-      case C.TYPE_HLS:
-        return new HlsMediaSource(uri, factory, mainHandler, this);
       case C.TYPE_OTHER://this one is ours 3
         return new ExtractorMediaSource(uri, factory, new DefaultExtractorsFactory(), mainHandler, this);
       default: {
@@ -339,32 +337,27 @@ class SimpleExoPlayerData extends PlayerData
 
   // AdaptiveMediaSourceEventListener
 
-  @Override
   public void onLoadStarted(DataSpec dataSpec, int dataType, int trackType, Format trackFormat, int trackSelectionReason, Object trackSelectionData, long mediaStartTimeMs, long mediaEndTimeMs, long elapsedRealtimeMs) {
 
   }
 
-  @Override
+ 
   public void onLoadCompleted(DataSpec dataSpec, int dataType, int trackType, Format trackFormat, int trackSelectionReason, Object trackSelectionData, long mediaStartTimeMs, long mediaEndTimeMs, long elapsedRealtimeMs, long loadDurationMs, long bytesLoaded) {
 
   }
 
-  @Override
   public void onLoadCanceled(DataSpec dataSpec, int dataType, int trackType, Format trackFormat, int trackSelectionReason, Object trackSelectionData, long mediaStartTimeMs, long mediaEndTimeMs, long elapsedRealtimeMs, long loadDurationMs, long bytesLoaded) {
 
   }
 
-  @Override
   public void onLoadError(DataSpec dataSpec, int dataType, int trackType, Format trackFormat, int trackSelectionReason, Object trackSelectionData, long mediaStartTimeMs, long mediaEndTimeMs, long elapsedRealtimeMs, long loadDurationMs, long bytesLoaded, IOException error, boolean wasCanceled) {
     onLoadError(error);
   }
 
-  @Override
   public void onUpstreamDiscarded(int trackType, long mediaStartTimeMs, long mediaEndTimeMs) {
 
   }
 
-  @Override
   public void onDownstreamFormatChanged(int trackType, Format trackFormat, int trackSelectionReason, Object trackSelectionData, long mediaTimeMs) {
 
   }

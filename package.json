@@ -1,21 +1,19 @@
 {
-  "name": "react-native-audio-exoplayer-files",
-  "version": "1.1.0",
-  "description": "Fork of react-native-audio-exoplayer that also allows to play files from any location (e.g. cache)",
+  "name": "react-native-audio-exoplayer2.12.0",
+  "version": "1.0.0",
+  "description": "This repo is a fork from https://github.com/asarasua/react-native-audio-exoplayer. I have updated the repo with the latest version of Exoplayer to this day that is 2.12.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "react-native",
-    "react-component",
-    "sound",
-    "audio"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asarasua/react-native-audio-exoplayer.git"
+    "url": "git+https://github.com/murtuzamacdev/react-native-audio-exoplayer.git"
   },
-  "author": "Álvaro Sarasúa <alvarosarasua@gmail.com> (https://github.com/asarasua)",
-  "license": "MIT"
+  "author": "Murtuza Chakkiwala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murtuzamacdev/react-native-audio-exoplayer/issues"
+  },
+  "homepage": "https://github.com/murtuzamacdev/react-native-audio-exoplayer#readme"
 }
