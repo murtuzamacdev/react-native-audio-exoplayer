@@ -1,5 +1,5 @@
 {
-  "name": "react-native-audio-exoplayer2.12.0",
+  "name": "react-native-exoplayer-audio-only",
   "version": "1.0.0",
   "description": "This repo is a fork from https://github.com/asarasua/react-native-audio-exoplayer. I have updated the repo with the latest version of Exoplayer to this day that is 2.12.0",
   "main": "index.js",
